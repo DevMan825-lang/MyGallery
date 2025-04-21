@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />    <title>Gallery Webpage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+   <style type="text/css">
+        body{
+            background-color:#000;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            cursor:pointer;
+        }
+        body.loaded{
+            opacity:1;
+        }
+        *{
+            margin:0;
+            padding: 0;
+            box-sizing:border-box;
+        }
+        .main-container{
+            display:flex;
+            flex-direction: row;
+            gap:50%;
+            background-color: black;
+            width:100%;
+            position:fixed;
+            font-family: "Ubuntu", sans-serif;
+        }
+        .nav2{
+            background-color: black;
+        }
+        .nav2 ul{
+            list-style-type:none;
+            margin:0;
+            padding:0;
+            background-color: black;
+            color:white;
+        }
+     .nav2 ul li{
+        display: inline-block;
+        padding:15px; 
+        font-size:20px;
+        font-family: "Ubuntu", sans-serif;
+        transition: all 0.5s ease-in;
+        }
+    .nav2 ul li:hover{
+        background-color: white;
+        color:black;
+
+    }
+        .nav2 ul li:first-child {
+            display:none;
+            list-style-type: none;
+
+        }
+    h3{
+        font-size: 20px;
+        color:white;
+        font-family: "Ubuntu", sans-serif;        
+        padding:15px;
+    }
+    h3::after{
+        content:"Gallery Store";
+        font-size: 20px;
+        color:orangered;
+        font-family: "Ubuntu", sans-serif;        
+        padding:15px;
+    }
+    img{
+        width:inherit;
+        height:200px;
+        border:none;
+        /* border-radius: 20px; */
+    }
+    .card-containers{
+        display:flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap:50px;
+        margin-top:50px;
+        background-color: #000; 
+        font-family:"Manrope", sans-serif;
+    }
+    .card1{
+        width:350px;
+        height:320px;
+        /* background-color: red; */
+        /* padding-left:35px;
+        padding-top: 24px; */
+
+        /* background-color: #f7f7f7;
+        box-shadow:0px 0px 10px 6px rgb(38,57,77); */
+        background-image: linear-gradient(135deg, rgba(255,255,255, .1), rgb(255, 255, 255));
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        box-shadow: 0px 4px 30px rgba(255, 255, 255, 0.50);
+        /* scale:transfrom(0.8); */
+        /* border-radius:20px; */
+        transition: 0.5s all ease-in-out;
+    }
+  
+  .card2{
+        width:350px;
+        height:320px;
+        /* padding-left:40px;
+        padding-top: 24px; */
+        /* background-color: #f7f7f7;
+        box-shadow:0px 0px 10px 6px rgb(38,57,77); */
+
+        background-image: linear-gradient(180deg, rgba(0,0,0, .3), rgb(255, 255, 255));
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        box-shadow: 0px 4px 30px rgba(255, 255, 255, 0.50);
+
+        /* border-radius:20px; */
+        transition: 0.5s all ease-in-out;
+    }
+    .card1:hover,.card2:hover{
+        transform: scale(1.2);
+    }
+    .card1 p{
+        color:white;
+        text-align:center;
+    }
+    .card2 p{
+        color:white;
+        text-align:center;
+    }
+    .btn{
+        width:100px;
+        height:28px;
+        margin-top: 10px;
+        background-color: #8cf67e;
+        border:none;
+        border-radius:6px;
+        position:absolute;
+        left:32%;
+    }
+    .backgroundImageContainer{
+        width: 100%;
+        height:640px;
+        background-image: url("img3.jpg");
+        background-size: cover;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        overflow:hidden; 
+        animation: animate 6s ease-in-out;
+        animation-iteration-count: infinite;
+        animation-delay:4s;
+      }
+      @keyframes animate{
+        20%{
+            background-image: url("nature1.jpg");
+        }
+        40%{
+            background-image: url("nature2.jpg");
+        }
+        60%{
+            background-image: url("nature3.jpg");
+        }
+      }
+      /* .direction{
+        float:right;
+       margin-top: -60px;
+      } */
+    .content-container1{
+        padding:50px;
+        background-color: rgb(0,0,0,.5);
+        width:50%;
+        height:inherit;
+        color:white;
+        font-family: "Ubuntu", sans-serif;
+        overflow: hidden;
+    }
+    .content-container1 h1{
+        font-size:60px;
+        padding-top:50px;
+
+    }
+
+    .content-container1 marquee{
+        font-size:28px;
+        padding-top:20px;
+
+    }
+    .content-container1 p{
+       margin-top:50px;
+    }
+    .know{
+        background-color: antiquewhite;
+        width: 100px;
+        height:40px;
+        font-size:12px;
+        margin-top: 50px;
+    }
+    .explore{
+        background-color:deeppink;
+        color:white;
+        width: 100px;
+        height:40px;
+        font-size:12px;
+        margin-top: 50px;
+        margin-left:10px;
+    }
+    .content-container2{
+        display: flex;
+        flex-direction: row;
+        gap: 300px;
+        padding:60px;
+        background-color: #3c3c3cf9;
+        color:white;
+        font-family: "Poppins", sans-serif;
+        font-weight:lighter;
+    }
+    .content-container2 h1{
+        font-size:50px;
+    }
+    .Learn-More{
+        background-color: #58cbc3;
+        color:white;
+        width:100px;
+        height:36px;
+        border-radius:20px;
+        border:none;
+    }
+    .sign-up{
+        background: none;
+        color:white;
+        border: 2px solid white;
+        width:100px;
+        height:36px;
+        border-radius:20px;
+        margin-left: 20px;
+    }
+    .content-container3{
+        display:flex;
+        flex-direction: row;
+        gap:300px;
+        padding:60px;
+        background-color:#000;
+        color:white;
+        font-family: "Poppins", sans-serif;
+        font-weight:lighter;
+    }
+    .content-container3 img{
+        width:320px;
+        height:280px;
+        border-radius:20px;
+        border:none;
+        margin-left: 40px;
+    }
+    .section1{
+        padding-top:40px;
+    }
+    .content-container4{
+        display:flex;
+        flex-direction: row;
+        gap:260px;
+        padding:60px;
+        background-color:#25393a;
+        color:white;
+        font-family: "Poppins", sans-serif;
+        font-weight:lighter;
+    }
+    .content-container4 img{
+        width:320px;
+        height:300px;
+        border-radius:20px;
+        border:none;
+    }
+    .card-section{
+        padding-top:60px;
+    }
+    /* .cardHeaderSection{
+        border:none;
+        border-bottom:6px solid orange;
+        width:150px;
+    } */
+    .cardHeaderSection h1{
+        font-size:28px;
+        /* text-decoration:underline orangered; */
+        text-align:center;
+        color:white;
+        font-family: "Manrope", sans-serif;
+    }
+    .cardHeaderSection h1::after{
+        content:"of our beautiful nature photography";
+        text-align:center;
+        color:#fdf787;
+        font-family: "Manrope", sans-serif;
+    }
+    .formContainer{
+        display:flex;
+        flex-direction: row;
+        background-color: #000;
+        color:white;
+        gap: 300px;
+        padding:100px;
+        margin-top: 75px;
+        font-family: "Roboto", sans-serif;
+    }
+   input[type="text"]{
+    width:400px;
+    height:24px;
+    background: transparent;
+    color:white;
+    border:2px solid violet;
+    border-radius: 4px;;
+   }
+   input[type="text"]:focus{
+    outline:none;
+   }
+   textarea{
+    width:400px;
+    height:100px;
+    background: transparent;
+    color:white;
+    border:2px solid violet;
+    border-radius: 4px;;
+   }
+   textarea:focus{
+    outline:none;
+   }
+   input[type="email"]{
+    width:400px;
+    height:24px;
+    background: transparent;
+    color:white;
+    border:2px solid violet;
+    border-radius: 4px;;
+   }
+   input[type="email"]:focus{
+    outline:none;
+   }
+   input[type="submit"]{
+    width:100px;
+    height:32px;
+    background-color: #c4fca4;
+    border:none;
+    border-radius:4px;
+   }
+   input[type="reset"]{
+    width:100px;
+    height:32px;
+    background-color: hsl(0,0%,94%);
+    border:none;
+    border-radius:4px;
+    margin-left:15px;
+   }
+   .contentForm{
+    font-size: 24px;
+    padding-top: 4px;
+   }
+   .fContent p{
+    font-size:20px;
+   }
+   .footerContent{
+    background-color: #232829;
+    font-family: "Roboto", sans-serif;
+   }
+   .footerContent h2{
+        color:white;
+        padding-top:40px;
+        text-align:center;
+   }
+   .orderList{
+    background-color:#232829;
+    }
+   .orderList ol{
+    margin-left: 40%;
+    padding-top:20px;
+    background-color: #232829;
+
+   }
+   .orderList ol li{
+    list-style-type: none;
+    display:inline-block;
+    color:white;
+    margin-left:20px;
+    
+   }
+   .footunderline{
+    padding-left:10px;
+    width:95%;
+    height:40px;
+    border:none;
+    border-top:2px solid white;
+    margin-left: 10px;
+    margin-top: 50px;
+
+   }
+   .footer{
+    border:none;
+    background-color: #232829;
+
+   }
+   .endContent h3{
+    background-color: #232829;
+    border:none;
+    text-align:center;
+    font-size:15px;
+   }
+   h2{
+    color:white;
+    text-align:center;
+    margin-top:60px;
+    font-size:50px;
+    font-family: "Roboto", sans-serif;
+
+   }
+
+   span{
+    color:white;
+    margin-left:200px;
+    margin-top:60px;
+    font-size:20px;
+   }
+   /* .sociallinks{
+    width:100%;
+    height:350px;
+    background-color: #232829;
+    padding-top:50px;
+   } */
+
+    /* Responsive Design */
+    @media (max-width:768px) {
+        .nav2 ul li{
+            padding:0px;
+            display:none;
+            /* color:white; */
+            list-style-type:none;
+    } 
+    /* .nav2 ul li:hover{
+        background-color: white;
+        color:black;
+
+    } */
+    .nav2 ul li:first-child{
+        display:block;
+        padding:15px;
+        margin-left: 60px;
+        list-style-type: none;
+        /* transition: all 1s ease-in-out; */
+    }
+        .backgroundImageContainer{
+        width: 100%;
+        height:550px;
+        background-image: url("img3.jpg");
+        background-size: cover;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        overflow:hidden; 
+        }
+    .content-container1 h1{
+        font-size:40px;
+        padding-top:40px;
+
+    }
+
+    .content-container1 marquee{
+        font-size:24px;
+        padding-top:20px;
+
+    }
+    .content-container1 p{
+       margin-top:50px;
+    }
+    .know{
+        background-color: antiquewhite;
+        width: 100px;
+        height:40px;
+        font-size:12px;
+        margin-top: 50px;
+    }
+    .explore{
+        background-color:deeppink;
+        color:white;
+        width: 100px;
+        height:40px;
+        font-size:12px;
+        margin-top: 50px;
+        margin-left:10px;
+    }
+    .content-container2,.content-container3, .content-container4{
+            display:flex;
+            flex-direction: column;
+            gap:100px;
+            text-align:center;
+    }
+    .card-containers{
+        display: flex;
+        flex-direction: column;
+    }
+    .formContainer{
+        display:flex;
+        flex-direction:column;
+        gap:100px;
+    }
+    .footerContent h2{
+       margin-left:130px;
+    }
+    .toogleButton{
+        background-color:white;
+    }
+  
+}
+ 
+
+</style>
+</head>
+<body>
+    <div class="main-container">
+    <nav class="nav1">
+      <h3>Our</h3>
+    </nav>
+        <nav class="nav2" id="navbar">
+        <ul>
+         <li id="display"> <i class="fa-solid fa-bars"></i></li>
+        <li>Home</li>
+        <li>About</li>
+        <li>Gallery</li>
+        <li>Contact</li>
+        </ul>
+      </nav>
+      </div>
+
+      <div class="backgroundImageContainer">
+       <div class="content-container1">
+        <h1>Explore beautiful  images in our gallery</h1>
+        <p>Explore beautiful nature related images,<br>
+            beautiful nature related background,<br>
+            Open Source and free for download</p>
+        <button class="know">Know More</button> <button class="explore">Explore Now</button>
+            <br><br>
+        <marquee direction="right">Explore new things</marquee>
+       </div>
+       <!-- <marquee class="direction">hello</p> -->
+      </div>
+
+      <div class="content-container2">
+            <div class="pContent1">
+                <h1>Explore the world <br> of nature with us</h1>
+            </div>
+
+            <div class="pContent2">
+                <p>Explore stunning natural phtoshoot, natural images,<br>
+                    beatiful background of nature's like forest, hills,<br>
+                    landscapes, waterfall, river and many more in <br>
+                    our website.
+                </p>
+                <br><br>
+                <button class = "Learn-More">Learn More</button><button class="sign-up">Sign Up</button>
+            </div>
+
+      </div>
+   
+
+      <div class="content-container3">
+        <div class="section1">
+            <h1>Explore the nature <br> with stunning visuals: Our <br> Gallery Services</h1>
+            <br><br>
+
+            <p>Discover the nature gallery to explore photographs from <br> the professionals </p>
+        </div>
+        <div class="section2">
+            <img src="photographer1.jpg"/>
+        </div>
+        </div>
+
+        <div class="content-container4">
+            <div class="section1">
+                <h1>Transform yourselves to explore  <br> stunning visuals: Of the <br> nature related photography</h1>
+                <br><br>
+                <p>Discover the nature gallery to explore photographs from <br> the professionals </p>
+            </div>
+            <div class="section2">
+                <img src="photographer2.jpg"/>
+            </div>
+        </div>
+
+
+
+<div class="card-section">
+    <div class="cardHeaderSection">
+        <h1>Explore Cards <br></h1>
+    </div>
+    <br><br>
+      <div class="card-containers">
+      <div class="card1">
+        <img src="img1.jpg" alt="nature-image"/>
+        <br><br>
+        <p>Download Beautiful images from our website</p>
+        <button class="btn">Download</button>
+      </div>
+      <div class="card2">
+        <img src="img2.jpg" alt="nature-image"/>
+        <br><br>
+
+        <p>Download Beautiful images from our website</p>
+        <button class="btn">Download</a></button>
+      </div>
+      </div>
+<br><br>
+      <div class="card-containers">
+        <div class="card1">
+          <img src="img3.jpg" alt="nature-image"/>
+          <br><br>
+
+          <p>Download Beautiful images from our website</p>
+          <button class="btn">Download</button>
+        </div>
+
+        <div class="card2">
+          <img src="img4.jpg" alt="nature-image"/>
+          <br><br>
+
+          <p>Download Beautiful images from our website</p>
+          <button class="btn">Download</button>
+        </div>
+        </div>
+
+        </div>
+        <br><br>
+
+        <h2>Contact Us</h2>
+
+        <div class="formContainer">
+            <div class="form">
+                <form>
+                    <label>Name</label>
+                    <br>
+                    <input type="text" name="name"/>
+                    <br><br>
+                    <label>Email-id</label>
+                    <br>
+                    <input type="email" name="email"/>
+                    <br><br>
+                    <label>Comment</label>
+                    <br>
+                    <textarea></textarea>
+                    <br><br>
+                        <input type="submit" value="Send"/>
+                        <input type="reset" value="cancel"
+                </form>
+            </div>
+
+            <div class="fContent">
+                    <div class="contentForm">
+                        <p>Explore the stunning nature photographs<br> in our gallery
+                            write your thoughts in the<br> comment field and tells us <br>
+                            how to improve prefectly.
+                        </p>
+
+                        <p>Explore the stunning nature photographs<br> in our gallery
+                            write your thoughts in the<br> comment field and tells us <br>
+                            how to improve prefectly.
+                        </p>
+
+                        <p>Explore the stunning nature photographs<br> in our gallery
+                            write your thoughts in the<br> comment field and tells us <br>
+                            how to improve prefectly.
+                        </p>
+                    </div>
+            </div>
+        </div>
+        <br><br>
+
+        <div class="sociallinks">
+        <h2>Follow Us On</h2>
+        <br><br><br><br>
+        <span><i class="fa fa-facebook-official" aria-hidden="true"></i>
+            Facebook, </span>
+        
+            <span><i class="fa fa-whatsapp" aria-hidden="true"></i>
+            Whatsapp, </span>
+
+            <span><i class="fa fa-instagram" aria-hidden="true"></i>
+                Instagram, </span>
+            
+                <span><i class="fa fa-twitter" aria-hidden="true"></i>
+                    Twitter. </span>
+                </div>
+
+        <div class="footerContent">
+        <footer>
+            <h2>Our Gallery Store</h2>
+            <div class="orderList">
+            <ol>
+                <li>Home</li>
+                <li>About</li>
+                <li>Gallery</li>
+                <li>Contact</li>
+            </ol>
+            </div>
+            <div class="footunderline">
+                <div class="footer">
+                <h3>2025 Our Gallery Store. All Rights Reserved</h3>
+                </div>
+                <div class="endContent">
+                    <h3>Privacy Policy &nbsp;&nbsp; Cookie Policy &nbsp;&nbsp; Terms of Use</h3>
+                </div>
+            </div>
+        </footer>
+    </div> 
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", ()=>{
+            document.body.classList.add("loaded");
+        }); 
+
+        document.getElementById("display").onclick = function(){
+        var show = document.getElementById("navbar");
+            if(show.className === "nav2"){
+                show.className += "responsive"; 
+                document.getElementById("navbar").style.color = "white";
+                document.getElementById("navbar").style.transition = "all 1s ease-in-out";
+                document.getElementById("navbar").style.listStyleType = "none";
+
+            }else{
+                show.className = "nav2"; 
+            }
+        }
+    
+    </script>
+</body>
+</html>
